@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+        * {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #ffffff;
+
+  --text: #272727;
+
+  --accent: #5057fd;
+
+  --accent-light: #eff3ff;
+}
+
+body {
+  font-family: 'PlusJakartaSans', sans-serif;
+
+  min-height: 100vh;
+
+  color: var(--text);
+
+  background: var(--primary);
+}
+
+a {
+  text-decoration: none;
+
+  color: currentColor;
+}
+
+li {
+  list-style: none;
+
+  line-height: 2;
+}
+
+span {
+  font-size: 14px;
+}
+
+p {
+  font-weight: 500;
+}
+
+.pricing__section {
+  margin-block: 3rem;
+}
+
+.wrapper {
+  max-width: 1240px;
+
+  margin-inline: auto;
+
+  padding-inline: 1rem;
+}
+
+.title {
+  text-align: center;
+
+  display: grid;
+
+  gap: 1rem;
+
+  place-items: center;
+}
+
+.title h2 {
+  font-size: 40px;
+}
+
+.toggle__section {
+  display: flex;
+
+  gap: 1rem;
+
+  align-items: center;
+  margin-bottom: 2rem; /* Adjust this value as needed */
+}
+
+.toggle__section input {
+  display: none;
+}
+
+.toggle__section .toggle__btn {
+  display: flex;
+
+  padding: 4px;
+
+  background: var(--accent);
+
+  border-radius: 2rem;
+
+  width: 2.35rem;
+}
+
+.toggle__section .toggle__btn span {
+  display: block;
+
+  width: 1rem;
+
+  height: 1rem;
+
+  background: var(--primary);
+
+  border-radius: 50%;
+}
+
+input:checked ~ .toggle__btn {
+  justify-content: end;
+}
+
+.price__cards {
+  margin-block: 2rem;
+
+  display: grid;
+
+  gap: 2rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.price__card {
+  padding: 2rem 1.5rem;
+
+  box-shadow: 2px 0 24px #f7f7f7;
+
+  border-radius: 8px;
+
+  display: inline-flex;
+
+  gap: 1rem;
+
+  flex-direction: column;
+}
+
+.price__details {
+  flex: 1 1 auto;
+}
+
+.price__details h3 {
+  font-size: 32px;
+
+  line-height: 1.5;
+}
+
+.price__details ul {
+  margin-block: 1rem;
+}
+
+.price__details ul li::before {
+  margin-right: 8px;
+font-weight: bold;
+}
+
+hr {
+  border: none;
+
+  height: 0;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.price__card .price {
+  font-size: 40px;
+
+  font-weight: 600;
+
+  letter-spacing: -2px;
+}
+
+.price__card .price:before {
+  content: "$";
+}
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 1.2rem 2rem;
+
+  border-radius: 5px;
+
+  transition: 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.bg__accent {
+  background: var(--accent);
+
+  color: var(--primary);
+}
+
+.bg__accent-2 {
+  background: var(--accent-light);
+
+  color: var(--accent);
+}
+
+.bg__primary {
+  background: var(--primary);
+
+  color: var(--accent);
+}
+
+.btn:hover {
+  transform: scale(0.96);
+}
+.starter-icon {
+    background-image: url('https://content.app-sources.com/s/00551309621827894/uploads/Icons/icons8-check-mark-48_2-7549132.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 20px;  /* Adjust based on your icon size */
+    height: 20px; /* Adjust based on your icon size */
+    margin-right: 8px; /* Space between the icon and the text */
+}
+
+.business-icon {
+    background-image: url('https://content.app-sources.com/s/00551309621827894/uploads/Icons/icons8-check-mark-48_3-7558661.png');
+  background-size: contain;
+    display: inline-block;
+    width: 20px;  /* Adjust based on your icon size */
+    height: 20px; /* Adjust based on your icon size */
+    margin-right: 8px; /* Space between the icon and the text */
+    /* ... other properties similar to .starter-icon ... */
+}
+
+.growth-icon {
+    background-image: url('path/to/growth-icon.png');
+    /* ... other properties similar to .starter-icon ... */
+  background-image: url('https://content.app-sources.com/s/00551309621827894/uploads/Icons/icons8-check-mark-48_2-7549132.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 20px;  /* Adjust based on your icon size */
+    height: 20px; /* Adjust based on your icon size */
+    margin-right: 8px; /* Space between the icon and the text */
+}
+.starter-icon, .business-icon, .growth-icon {
+    vertical-align: middle;
+}
+/* Targeting the Business plan with the bg__accent-2 class */
+.bg__accent-2 {
+    background-color: #5555ff; /* You can replace 'blue' with a specific hex/rgb value if needed */
+    color: white;
+}
+/* Targeting the Growth plan with the bg__accent class */
+.bg__accent {
+    background-color: white;
+    color: black;
+}
+.price__card.bg__accent .btn {
+    background-color: #5555ff;
+    color: white;
+}
+.price__cards .price__card:first-child {
+    border: 0.5px solid #D1D1D1;
+}
+.price__card.bg__accent {
+    border: 0.5px solid #D1D1D1
+}
+.price__details ul li {
+    font-size: 14px;
+}
+.price__card > span {
+    text-align: center;
+    display: block;  /* This ensures the span takes the full width of its container */
+}
+.price__card.bg__accent-2 .btn {
+    color: #5555ff;
+}
+.price::after {
+    content: "/mo";
+    margin-left: 4px;
+    font-size: 0.4em; /* Reduce the font size */
+    vertical-align: inline; /* Vertically align with the price */
+  color: #B6B6B6;
+}
+.price__card.bg__accent-2 {
+    position: relative;
+}
+.badge {
+    position: absolute; /* Absolute positioning */
+    top: -14px; /* Move the badge 10px above the top edge of the card */
+    left: 22px; /* Move the badge 10px to the left of the left edge of the card */
+    background-color: #FFD700;
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 14px;
+    font-size: 0.8em;
+    z-index: 1; /* Ensure the badge appears above other elements 
+  */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Horizontal offset, vertical offset, blur radius, color */
+  font-weight: 600;
+}
+.save-badge {
+    border: 2px solid #5555ff; /* Black border */
+    padding: 0 8px; /* Horizontal padding for spacing inside the badge */
+    margin-left: -8px; /* Space between the badge and the "Annually" text */
+    display: inline-block; /* Allows for vertical alignment and height adjustments */
+    vertical-align: middle; /* Aligns the badge with the "Annually" text */
+    line-height: 1.5; /* Ensures the badge's height matches its font size */
+    background-color: transparent; /* No background */
+  border-radius: 14px;
+  color: #5555ff;
+}
+.price__card .price__details p {
+    line-height: 1.5 !important; /* Using !important to ensure this rule takes precedence */
+}
+
+    </style>
+</head>
+<body>
+
+    <section class="pricing__section">
+  <div class="wrapper">
+    <div class="title">
+      <div class="toggle__section">
+        <span>Monthly</span>
+        <input type="checkbox" name="" id="check">
+        <label for="check" class="toggle__btn">
+          <span></span>
+        </label>
+        <span>Annualy</span>
+        <span class="save-badge">Save 20%</span>
+      </div>
+    </div>
+    <div class="price__cards">
+      <div class="price__card">
+    <!-- Plan name -->
+    <h3>Starter</h3>
+    
+    <!-- Price -->
+    <div class="price">24</div>
+    
+    <!-- Description -->
+    <p>The essentials when starting a new business.</p>
+    
+    <!-- Separator line -->
+    <hr>
+    
+    <!-- Price details -->
+    <div class="price__details">
+        <ul>
+            <li><span class="starter-icon"></span>1 Website</li>
+            <li><span class="starter-icon"></span>1 Funnel</li>
+          <li><span class="starter-icon"></span>1 Custom Domain</li>
+          <li><span class="starter-icon"></span>Free Hosting & SSL</li>
+          <li><span class="starter-icon"></span>20 Pages</li>
+          <li><span class="starter-icon"></span>2 Admins</li>
+          <li><span class="starter-icon"></span>Full eCommerce Solution</li>
+          <li><span class="starter-icon"></span>5 Products</li>
+          <li><span class="starter-icon"></span>Email Marketing & Automation</li>
+          <li><span class="starter-icon"></span>AI Writing Assistant</li>
+          <li><span class="starter-icon"></span>Booking & appointments</li>
+          <li><span class="starter-icon"></span>Memberships</li>
+        </ul>
+    </div>
+    
+    <!-- Per person -->
+    <span>No Credit Card Required</span>
+    
+    <!-- Button -->
+    <a href="https://maindesk.io/join-today/Subscribe" target="_top" class="btn bg__accent-2">Get started For Free</a>
+</div>
+
+      <div class="price__card bg__accent-2">
+    <!-- Plan name -->
+        
+    <h3>Business🚀</h3>
+    
+    <!-- Price -->
+    <div class="price" id="pro">49.95</div>
+    <span class="badge">Most Popular</span>
+    <!-- Description -->
+    <p>A plan that scales with your growing business.</p>
+    
+    <!-- Separator line -->
+    <hr>
+    
+    <!-- Price details -->
+    <div class="price__details">
+        <ul>
+            <li><span class="business-icon"></span>1 Website</li>
+            <li><span class="business-icon"></span>5 Funnels</li>
+            <li><span class="business-icon"></span>6 Custom Domain</li>
+          <li><span class="business-icon"></span>Free Hosting & SSL</li>
+          <li><span class="business-icon"></span>Unlimited Pages</li>
+          <li><span class="business-icon"></span>5 Admins</li>
+          <li><span class="business-icon"></span>Full eCommerce Solution</li>
+          <li><span class="business-icon"></span>100 Products</li>
+          <li><span class="business-icon"></span>Email Marketing & Automation</li>
+          <li><span class="business-icon"></span>AI Writing Assistant</li>
+          <li><span class="business-icon"></span>Booking & appointments</li>
+          <li><span class="business-icon"></span>Memberships</li>
+          <li><span class="business-icon"></span>Quizzes & Surveys</li>
+          <li><span class="business-icon"></span>Recurring payments</li>
+        </ul>
+    </div>
+    
+    <!-- Per person -->
+    <span>No Credit Card Required</span>
+    
+    <!-- Button -->
+    <a href="https://maindesk.io/join-today/Subscribe" target="_top" class="btn bg__accent">Get started For Free</a>
+</div>
+
+      <div class="price__card bg__accent">
+    <!-- Plan name -->
+    <h3>Growth</h3>
+    
+    <!-- Price -->
+    <div class="price" id="premium">94.95</div>
+    
+    <!-- Description -->
+    <p>If you're managing multiple businesses.</p>
+    
+    <!-- Separator line -->
+    <hr>
+    
+    <!-- Price details -->
+    <div class="price__details">
+        <ul>
+            <li><span class="growth-icon"></span>3 Websites</li>
+            <li><span class="growth-icon"></span>20 Funnels</li>
+            <li><span class="growth-icon"></span>21 Custom Domain</li>
+          <li><span class="growth-icon"></span>Free Hosting & SSL</li>
+          <li><span class="growth-icon"></span>Unlimited Pages</li>
+          <li><span class="growth-icon"></span>10 Admins</li>
+          <li><span class="growth-icon"></span>Full eCommerce Solution</li>
+          <li><span class="growth-icon"></span>Unlimited Products</li>
+          <li><span class="growth-icon"></span>Email Marketing & Automation</li>
+          <li><span class="growth-icon"></span>AI Writing Assistant</li>
+          <li><span class="growth-icon"></span>Booking & appointments</li>
+          <li><span class="growth-icon"></span>Memberships</li>
+          <li><span class="growth-icon"></span>Quizzes & Surveys</li>
+          <li><span class="growth-icon"></span>Recurring payments</li>
+        </ul>
+    </div>
+    
+    <!-- Per person -->
+    <span>No Credit Card Required</span>
+    
+    <!-- Button -->
+    <a href="https://maindesk.io/join-today/Subscribe" target="_top" class="btn bg__primary">Get started For Free</a>
+</div>
+
+    </div>
+  </div>
+</section>
+    <script>
+        let toggleBtn = document.querySelector(".toggle__btn");
+let starterPrice = document.querySelector(".price__card:first-child .price");
+let proPrice = document.querySelector("#pro");
+let premiumPrice = document.querySelector("#premium");
+
+toggleBtn.addEventListener("click", () => {
+  // Toggling logic for Starter plan
+  const newStarter = starterPrice.innerHTML === "24" ? "19.95" : "24";
+  starterPrice.innerHTML = newStarter;
+
+  // Toggling logic for Business plan
+  const newPro = proPrice.innerHTML === "49.95" ? "39.95" : "49.95";
+  proPrice.innerHTML = newPro;
+
+  // Toggling logic for Growth plan
+  const newPremium = premiumPrice.innerHTML === "94.95" ? "75.95" : "94.95";
+  premiumPrice.innerHTML = newPremium;
+});
+
+    </script>
+</body>
+</html>
